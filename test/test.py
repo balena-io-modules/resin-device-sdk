@@ -7,8 +7,8 @@ from resin import resin_Supervisor
 
 supervisor = resin_Supervisor()
 
-print ('ping', supervisor.ping());
-print ('device', supervisor.device());
-print ('blink', supervisor.blink());
+print ('ping', supervisor.ping())
+print ('device', supervisor.device())
+print ('blink', supervisor.blink())
 
-print ('restart', supervisor.restart('12'));
+print ('restart', supervisor.restart('12'))

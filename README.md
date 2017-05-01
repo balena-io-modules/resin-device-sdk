@@ -17,13 +17,13 @@ supervisor.device().then(device => {
 from resin import resin_Supervisor
 
 supervisor = resin_Supervisor()
-print ('device', supervisor.device());
+print ('device', supervisor.device())
 ```
 
 ## Methods
 - [x] [.ping()](https://docs.resin.io/runtime/supervisor-api/#get-ping)
 - [x] [.blink()](https://docs.resin.io/runtime/supervisor-api/#post-v1-blink)
-- [x] [.update(force::Bool)](https://docs.resin.io/runtime/supervisor-api/#post-v1-update)
+- [x] [.update(force:Bool)](https://docs.resin.io/runtime/supervisor-api/#post-v1-update)
 - [x] [.device()](https://docs.resin.io/runtime/supervisor-api/#get-v1-device)
 - [x] [.reboot()](https://docs.resin.io/runtime/supervisor-api/#post-v1-reboot)
 - [x] [.shutdown()](https://docs.resin.io/runtime/supervisor-api/#post-v1-shutdown)

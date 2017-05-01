@@ -9,7 +9,7 @@ const resin = require('../dist/resin.js');
 const supervisor = new resin.Supervisor();
 
 supervisor.device().then(device => {
-  console.log({device})
+  console.log({device});
 });
 ```
 

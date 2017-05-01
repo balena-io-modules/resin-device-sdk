@@ -18,12 +18,11 @@ class Supervisor {
     this.baseUrl = 'http://localhost:$port/v1';
   }
 
-  function request(url, ?method: Bool = false, ?body:Dynamic):Dynamic {
+  function request(url, ?post: Bool = false, ?body:Dynamic):Dynamic {
     var r = new haxe.Http('$baseUrl$url?apiKey=$apiKey');
 
-    if (method) {
-      trace(Reflect.isObject(body));
-      if (body) {
+    if (post) {
+      if (Reflect.isObject(body)) {
         r.setPostData(haxe.Json.stringify(body));
       } else {
         // need for nodejs post requests (can't be undefined)
@@ -46,7 +45,7 @@ class Supervisor {
           reject(e);
         };
 
-        r.request(method);
+        r.request(post);
       });
     #else
       var returnedData = null;
@@ -63,7 +62,7 @@ class Supervisor {
         trace("ERROR", e);
       };
 
-      r.request(method);
+      r.request(post);
 
       return returnedData;
     #end

@@ -1,8 +1,7 @@
--js dist/resin.js
 -cp src
 -debug
 resin.Supervisor
--D lang=js
+-js dist/resin.js
 -D js-es5
 -lib hxnodejs # used to polyfill the http module
 
@@ -10,6 +9,5 @@ resin.Supervisor
 
 -cp src
 -debug
--D lang=python
 resin.Supervisor
 -python dist/resin.py

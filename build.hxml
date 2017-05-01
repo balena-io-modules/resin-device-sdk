@@ -1,0 +1,15 @@
+-js dist/resin.js
+-cp src
+-debug
+resin.Supervisor
+-D lang=js
+-D js-es5
+-lib hxnodejs # used to polyfill the http module
+
+--next
+
+-cp src
+-debug
+-D lang=python
+resin.Supervisor
+-python dist/resin.py

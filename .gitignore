@@ -1,0 +1,4 @@
+.DS_Store
+test/mock-server/node_modules
+*.log
+dist

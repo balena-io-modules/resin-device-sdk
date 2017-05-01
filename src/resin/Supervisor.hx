@@ -11,15 +11,24 @@ class Supervisor {
   var apiKey:String;
   var baseUrl:String;
   var query:String;
+  var debug:Bool;
 
-  public function new() {
+  public function new(?opts:Opts) {
     this.port = Sys.getEnv('RESIN_SUPERVISOR_PORT');
     this.apiKey = Sys.getEnv('RESIN_SUPERVISOR_API_KEY');
     this.baseUrl = 'http://localhost:$port/v1';
+    this.debug = (opts!=null) ? opts.debug : false;
   }
 
-  function request(url, ?post: Bool = false, ?body:Dynamic):Dynamic {
+  function request(url:String, ?post:Bool = false, ?body:Dynamic):Dynamic {
     var r = new haxe.Http('$baseUrl$url?apiKey=$apiKey');
+
+    if (debug) {
+      trace('Making request');
+      trace('URL: $url');
+      trace('is POST ? : $post');
+      trace('body : $body');
+    }
 
     if (post) {
       if (Reflect.isObject(body)) {
@@ -33,6 +42,10 @@ class Supervisor {
     #if js
       return new Promise(function(resolve, reject) {
         r.onData = function (data) {
+          if (url == '/regenerate-api-key') {
+            this.apiKey = data;
+          }
+
           if (data.length == 0) {
             resolve(data);
           } else {
@@ -41,7 +54,10 @@ class Supervisor {
         };
 
         r.onError = function (e) {
-          trace("ERROR", e);
+          if (this.debug) {
+            trace("ERROR: ", e);
+          }
+
           reject(e);
         };
 
@@ -51,6 +67,10 @@ class Supervisor {
       var returnedData = null;
       var returnedError = null;
       r.onData = function (data) {
+        if (url == '/regenerate-api-key') {
+          this.apiKey = data;
+        }
+
         if (data.length == 0) {
           returnedData = data;
         } else {
@@ -59,7 +79,10 @@ class Supervisor {
       };
 
       r.onError = function (e) {
-        trace("ERROR", e);
+        if (this.debug) {
+          trace("ERROR: ", e);
+        }
+        throw e;
       };
 
       r.request(post);
@@ -124,9 +147,18 @@ class Supervisor {
   public function stop(id: String) {
     return request('/apps/$id/stop', true);
   }
+
+  public function regenerateApiKey() {
+    // TODO we need to update the instance with the new key.
+    return request('/regenerate-api-key', true);
+  }
 }
 
 typedef Body = {
   ?force: Bool,
   ?appId: String
 };
+
+typedef Opts = {
+  ?debug: Bool
+}

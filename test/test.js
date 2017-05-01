@@ -1,5 +1,5 @@
 const resin = require('../dist/resin.js')
-const supervisor = new resin.Supervisor()
+const supervisor = new resin.Supervisor({ debug: true })
 
 supervisor.ping().then(ping => {
   console.log({ping})

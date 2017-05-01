@@ -1,6 +1,6 @@
 ## resin supervisor SDK
 
-This is a [resin-supervisor](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to 'nodejs' & 'python 3' and works on a resin device where the correct environment variables are present.
+This is a [resin-supervisor](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
 
 Example usage:
 

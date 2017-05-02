@@ -1,7 +1,7 @@
 from os import sys, path
 # __file__ should be defined in this case
 PARENT_DIR = path.dirname(path.dirname(path.abspath(__file__)))
-sys.path.append(PARENT_DIR + '/dist')
+sys.path.append(PARENT_DIR + '/dist/python/resin')
 
 from resin import resin_Supervisor
 

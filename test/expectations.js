@@ -63,11 +63,16 @@ module.exports = [
     'httpResponse': {
         'statusCode': 200,
         'body': JSON.stringify({
-          api_port: '123',
-          commit: 'hadfaf',
-          ip_address: 'testesy',
-          status: 'hyyyy',
-          download_progress: '76'
+          api_port:48484,
+          ip_address:"192.168.0.114 10.42.0.3",
+          commit:"414e65cd378a69a96f403b75f14b40b55856f860",
+          status:"Downloading",
+          download_progress:84,
+          os_version:"Resin OS 1.0.4 (fido)",
+          supervisor_version:"1.6.0",
+          update_pending:true,
+          update_downloaded:false,
+          update_failed:false
         }),
     },
     'times': {
@@ -90,7 +95,7 @@ module.exports = [
     },
     'httpResponse': {
         'statusCode': 200,
-        'body': JSON.stringify('ok'),
+        'body': JSON.stringify('OK'),
     },
     'times': {
         'unlimited': true

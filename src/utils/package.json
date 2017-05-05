@@ -1,0 +1,27 @@
+{
+  "name": "resin-device-sdk",
+  "description": "JavaScript resin.io device SDK",
+  "version": "10.0.2",
+  "author": {
+    "email": "craig@resin.io",
+    "name": "Craig Mulligan"
+  },
+  "main": "./index.js",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/resin-device-sdk/issues"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "homepage": "https://resin.io",
+  "keywords": [
+    "iot",
+    "sdk"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/resin-io-playground/resin-device-sdk.git"
+  }
+}

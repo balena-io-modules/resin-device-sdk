@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "mockserver-grunt": "1.0.36",
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "mocha": "3.3.0",
+    "mockserver-client": "1.0.15",
     "mockserver-grunt": "1.0.36"
   }
 }

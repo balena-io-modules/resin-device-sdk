@@ -1,14 +1,13 @@
 from os import sys, path
 # __file__ should be defined in this case
 PARENT_DIR = path.dirname(path.dirname(path.abspath(__file__)))
-sys.path.append(PARENT_DIR + '/dist/python/resin')
+sys.path.append(PARENT_DIR + '/dist/python')
 
-from resin import resin_Supervisor
+from resin_device import Supervisor
 
-supervisor = resin_Supervisor()
+supervisor = Supervisor()
 
-print ('ping', supervisor.ping())
-print ('device', supervisor.device())
-print ('blink', supervisor.blink())
-
-print ('restart', supervisor.restart('12'))
+def test():
+    assert supervisor.ping() == "OK"
+    assert supervisor.blink() == ""
+    assert supervisor.restart('12') == "OK"

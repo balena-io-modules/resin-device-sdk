@@ -5,18 +5,18 @@ This is a [resin-supervisor](https://docs.resin.io/runtime/supervisor-api) SDK i
 Example usage:
 
 ``` javascript
-const resin = require('../dist/resin.js');
+const resin = require('resin-device');
 const supervisor = new resin.Supervisor();
 
 supervisor.device().then(device => {
-  console.log({device});
+  console.log({ device });
 });
 ```
 
 ``` python
-from resin import resin_Supervisor
+from resin_device import Supervisor
 
-supervisor = resin_Supervisor()
+supervisor = Supervisor()
 print ('device', supervisor.device())
 ```
 

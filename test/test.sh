@@ -1,7 +1,9 @@
-# node test/mock-server/index.js &
-export RESIN_SUPERVISOR_PORT=1080
+export RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
 export RESIN_SUPERVISOR_API_KEY=1234
-echo "NODE" &&
-node test/test.js &&
-echo "PYTHON" &&
-python3 test/test.py
+node index.js start &
+while ! echo exit | nc localhost 48484; do sleep 3; done
+echo "TESTING NODEJS" &&
+node ../node_modules/.bin/mocha &&
+echo "TESTING PYTHON" &&
+python3 -m pytest -s test.py
+node index.js stop

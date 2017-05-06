@@ -2,3 +2,6 @@
 test/mock-server/node_modules
 *.log
 dist
+node_modules
+test/__pycache__
+test/.cache

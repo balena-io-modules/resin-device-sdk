@@ -1,7 +1,7 @@
 {
-  "name": "resin-device",
+  "name": "resin-device-sdk",
   "description": "resin.io device SDK compiles to multiple platforms",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": {
     "email": "craig@resin.io",
     "name": "Craig Mulligan"

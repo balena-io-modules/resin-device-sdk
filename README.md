@@ -1,6 +1,6 @@
-## resin supervisor SDK
+## resin device SDK
 
-This is a [resin-supervisor](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
+This is a [resin-device](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
 
 Example usage:
 
@@ -15,7 +15,7 @@ supervisor.device().then(device => {
 });
 ```
 
-[Read the tests for more nodejs examples](/blob/master/test/test.js)
+[Read the tests for more nodejs examples](/test/test.js)
 
 ### Python
 
@@ -26,7 +26,7 @@ supervisor = Supervisor()
 print ('device', supervisor.device())
 ```
 
-[Read the tests for more python examples](/blob/master/test/test.py)
+[Read the tests for more python examples](/test/test.py)
 
 ## Methods
 - [x] [.ping()](https://docs.resin.io/runtime/supervisor-api/#get-ping)

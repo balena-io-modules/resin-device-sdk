@@ -7,16 +7,13 @@ package resin;
 @:keep // <-- Avoid dead code elimination stripping this class away
 @:expose('Supervisor')
 class Supervisor {
-  var port:String;
   var apiKey:String;
   var baseUrl:String;
-  var query:String;
   var debug:Bool;
 
   public function new(?opts:Opts) {
-    this.port = Sys.getEnv('RESIN_SUPERVISOR_PORT');
+    this.baseUrl = Sys.getEnv('RESIN_SUPERVISOR_ADDRESS');
     this.apiKey = Sys.getEnv('RESIN_SUPERVISOR_API_KEY');
-    this.baseUrl = 'http://localhost:$port/v1';
     this.debug = (opts!=null) ? opts.debug : false;
   }
 
@@ -96,61 +93,61 @@ class Supervisor {
   }
 
   public function device() {
-    return request('/device');
+    return request('/v1/device');
   }
 
   public function blink() {
-    return request('/blink', true);
+    return request('/v1/blink', true);
   }
 
   public function reboot() {
-    return request('/reboot', true);
+    return request('/v1/reboot', true);
   }
 
   public function shutdown() {
-    return request('/shutdown', true);
+    return request('/v1/shutdown', true);
   }
 
   public function update(?force: Bool = false) {
     var body:Body = {
       force: force
     }
-    return request('/update', true, body);
+    return request('/v1/update', true, body);
   }
 
   public function purge(id) {
     var body:Body = {
       appId: id
     }
-    return request('/purge', true, body);
+    return request('/v1/purge', true, body);
   }
 
   public function restart(id) {
     var body:Body = {
       appId: id
     }
-    return request('/restart', true, body);
+    return request('/v1/restart', true, body);
   }
 
   public function tcpEnable() {
-    return request('/tcp-ping', true);
+    return request('/v1/tcp-ping', true);
   }
 
   public function app(id: String) {
-    return request('/apps/$id');
+    return request('/v1/apps/$id');
   }
 
   public function start(id: String) {
-    return request('/apps/$id/start', true);
+    return request('/v1/apps/$id/start', true);
   }
 
   public function stop(id: String) {
-    return request('/apps/$id/stop', true);
+    return request('/v1/apps/$id/stop', true);
   }
 
   public function regenerateApiKey() {
-    // TODO we need to update the instance with the new key.
-    return request('/regenerate-api-key', true);
+    // TODO we need to update the instance with the new key
+    return request('/v1/regenerate-api-key', true);
   }
 }
 

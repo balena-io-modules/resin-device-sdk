@@ -1,16 +1,15 @@
 -cp src
 -debug
 resin.Supervisor
--js dist/nodejs/resin/resin.js
--xml dist/nodejs/resin/resin.xml
+-js dist/nodejs/resin-device/index.js
+-xml dist/nodejs/resin-device/resin.xml
 -D js-es5
 -lib hxnodejs # used to polyfill the http module
-
 
 --next
 
 -cp src
 -debug
 resin.Supervisor
--python dist/python/resin/resin.py
--xml dist/python/resin/resin.xml
+-python dist/python/resin_device/resin_device.py
+-xml dist/python/resin_device/resin_device.xml

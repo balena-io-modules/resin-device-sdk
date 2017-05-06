@@ -4,21 +4,29 @@ This is a [resin-supervisor](https://docs.resin.io/runtime/supervisor-api) SDK i
 
 Example usage:
 
+### Nodejs
+
 ``` javascript
-const resin = require('../dist/resin.js');
+const resin = require('resin-device');
 const supervisor = new resin.Supervisor();
 
 supervisor.device().then(device => {
-  console.log({device});
+  console.log({ device });
 });
 ```
 
-``` python
-from resin import resin_Supervisor
+[Read the tests for more nodejs examples](/blob/master/test/test.js)
 
-supervisor = resin_Supervisor()
+### Python
+
+``` python
+from resin_device import Supervisor
+
+supervisor = Supervisor()
 print ('device', supervisor.device())
 ```
+
+[Read the tests for more python examples](/blob/master/test/test.py)
 
 ## Methods
 - [x] [.ping()](https://docs.resin.io/runtime/supervisor-api/#get-ping)

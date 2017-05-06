@@ -1,0 +1,30 @@
+{
+  "name": "resin-device-sdk",
+  "description": "resin.io device SDK compiles to multiple platforms",
+  "version": "0.1.0",
+  "author": {
+    "email": "craig@resin.io",
+    "name": "Craig Mulligan"
+  },
+  "main": "./index.js",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/resin-device/issues"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "homepage": "https://resin.io",
+  "keywords": [
+    "iot",
+    "sdk"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "mocha": "3.3.0",
+    "mockserver-client": "1.0.15",
+    "mockserver-grunt": "1.0.36"
+  }
+}

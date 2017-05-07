@@ -1,13 +1,13 @@
-## resin device SDK
+## resin.io device SDK
 
-This is a [resin-device](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
+This is a [resin-device-sdk](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
 
 Example usage:
 
 ### Nodejs
 
 ``` javascript
-const resin = require('resin-device');
+const resin = require('resin-device-sdk');
 const supervisor = new resin.Supervisor();
 
 supervisor.device().then(device => {
@@ -20,7 +20,7 @@ supervisor.device().then(device => {
 ### Python
 
 ``` python
-from resin_device import Supervisor
+from resin_device_sdk import Supervisor
 
 supervisor = Supervisor()
 print ('device', supervisor.device())

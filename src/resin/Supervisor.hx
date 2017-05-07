@@ -48,9 +48,8 @@ class Supervisor {
 
     #if js
       return new Promise(function(resolve, reject) {
-        var returnedData = null;
         r.onData = function (data) {
-          if (url == '/regenerate-api-key') {
+          if (url == '/v1/regenerate-api-key') {
             this.apiKey = data;
           }
 
@@ -71,7 +70,7 @@ class Supervisor {
       var returnedData = null;
       var returnedError = null;
       r.onData = function (data) {
-        if (url == '/regenerate-api-key') {
+        if (url == '/v1/regenerate-api-key') {
           this.apiKey = data;
         }
 

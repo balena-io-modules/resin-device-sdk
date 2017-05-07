@@ -1,9 +1,11 @@
-const resin = require('../dist/nodejs/resin-device');
+const resin = require('../dist/nodejs/resin-device-sdk');
 const supervisor = new resin.Supervisor();
 const chai = require('chai');
 const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
+
+const APP_ID = process.env.RESIN_APP_ID;
 
 describe('Supervisor', function() {
   describe('.ping', function() {
@@ -14,7 +16,7 @@ describe('Supervisor', function() {
 
   describe('.restart', function() {
     it('should return "OK" on success', function() {
-      return expect(supervisor.restart('12')).to.eventually.equal('OK');
+      return expect(supervisor.restart(APP_ID)).to.eventually.equal('OK');
     });
   });
 
@@ -25,8 +27,8 @@ describe('Supervisor', function() {
   });
 
   describe('.blink', function() {
-    it('should return empty response on success', function() {
-      return expect(supervisor.blink()).to.eventually.equal('');
+    it('should return "OK" on success', function() {
+      return expect(supervisor.blink()).to.eventually.equal('OK');
     });
   });
 
@@ -44,7 +46,7 @@ describe('Supervisor', function() {
 
   describe('.purge', function() {
     it('should return object with Data property on success', function() {
-      return expect(supervisor.purge('12')).to.eventually.have.property('Data');
+      return expect(supervisor.purge(APP_ID)).to.eventually.have.property('Data');
     });
   });
 
@@ -56,19 +58,19 @@ describe('Supervisor', function() {
 
   describe('.app', function() {
     it('should return app object on success', function() {
-      return expect(supervisor.app('12')).to.eventually.have.property('commit');
+      return expect(supervisor.app(APP_ID)).to.eventually.have.property('commit');
     });
   });
 
   describe('.start', function() {
     it('should return container object on success', function() {
-      return expect(supervisor.start('12')).to.eventually.have.property('containerId');
+      return expect(supervisor.start(APP_ID)).to.eventually.have.property('containerId');
     });
   });
 
   describe('.stop', function() {
     it('should return container object on success', function() {
-      return expect(supervisor.stop('12')).to.eventually.have.property('containerId');
+      return expect(supervisor.stop(APP_ID)).to.eventually.have.property('containerId');
     });
   });
 
@@ -77,4 +79,15 @@ describe('Supervisor', function() {
       return expect(supervisor.update(true)).to.eventually.equal('');
     });
   });
+
+  describe('.regenerateApiKey', function() {
+    it('should return apikey', function() {
+      return expect(supervisor.regenerateApiKey()).to.eventually.equal('5678a');
+    });
+
+    it('should update the apikey on supervisor instance', function() {
+      return expect(supervisor.apiKey).to.equal('5678a');
+    });
+  });
+
 });

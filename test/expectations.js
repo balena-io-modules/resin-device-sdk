@@ -1,3 +1,5 @@
+const APP_ID = process.env.RESIN_APP_ID;
+
 module.exports = [
   {
     'httpRequest': {
@@ -25,6 +27,7 @@ module.exports = [
     },
     'httpResponse': {
         'statusCode': 204,
+        'body': 'OK'
     },
     'times': {
         'unlimited': true
@@ -71,7 +74,7 @@ module.exports = [
             }
         ],
         'body': {
-          'appId': '12'
+          'appId': APP_ID
         }
     },
     'httpResponse': {
@@ -159,7 +162,7 @@ module.exports = [
             }
         ],
         'body': {
-          'appId': '12'
+          'appId': APP_ID
         }
     },
     'httpResponse': {
@@ -184,7 +187,7 @@ module.exports = [
             }
         ],
         'body': {
-          'appId': '12'
+          'appId': APP_ID
         }
     },
     'httpResponse': {
@@ -227,7 +230,7 @@ module.exports = [
     },
     'httpResponse': {
         'statusCode': 200,
-        'body': "480af7bb8a9cf56de8a1e295f0d50e6b3bb46676aaddbf4103aa43cb57039364",
+        'body': '5678a',
     },
     'times': {
         'unlimited': true
@@ -236,7 +239,7 @@ module.exports = [
   {
     'httpRequest': {
         'method': 'GET',
-        'path': '/v1/apps/12',
+        'path': `/v1/apps/${APP_ID}`,
         'queryStringParameters': [
             {
               'name': 'apikey',
@@ -255,7 +258,7 @@ module.exports = [
   {
     'httpRequest': {
         'method': 'POST',
-        'path': '/v1/apps/12/stop',
+        'path': `/v1/apps/${APP_ID}/stop`,
         'queryStringParameters': [
             {
               'name': 'apikey',
@@ -277,7 +280,7 @@ module.exports = [
   {
     'httpRequest': {
         'method': 'POST',
-        'path': '/v1/apps/12/start',
+        'path': `/v1/apps/${APP_ID}/start`,
         'queryStringParameters': [
             {
               'name': 'apikey',

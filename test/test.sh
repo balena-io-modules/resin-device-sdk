@@ -1,5 +1,6 @@
 export RESIN_SUPERVISOR_ADDRESS=http://127.0.0.1:48484
 export RESIN_SUPERVISOR_API_KEY=1234
+export RESIN_APP_ID=12
 node index.js start &
 while ! echo exit | nc localhost 48484; do sleep 3; done
 echo "TESTING NODEJS" &&

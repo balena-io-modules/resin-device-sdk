@@ -25,6 +25,12 @@ class Supervisor {
     }
   }
 
+  function updateApiKey(url:String, data:String) : Void {
+    if (url == '/v1/regenerate-api-key') {
+      this.apiKey = data;
+    }
+  }
+
   function request(url:String, ?post:Bool = false, ?body:Dynamic):Dynamic {
     var r = new haxe.Http('$baseUrl$url?apikey=$apiKey');
 
@@ -49,10 +55,8 @@ class Supervisor {
     #if js
       return new Promise(function(resolve, reject) {
         r.onData = function (data) {
-          if (url == '/v1/regenerate-api-key') {
-            this.apiKey = data;
-          }
 
+          updateApiKey(url, data);
           resolve(handleResponse(data));
         };
 
@@ -68,12 +72,8 @@ class Supervisor {
       });
     #else
       var returnedData = null;
-      var returnedError = null;
       r.onData = function (data) {
-        if (url == '/v1/regenerate-api-key') {
-          this.apiKey = data;
-        }
-
+        updateApiKey(url, data);
         returnedData = handleResponse(data);
       };
 
@@ -148,7 +148,6 @@ class Supervisor {
   }
 
   public function regenerateApiKey() {
-    // TODO we need to update the instance with the new key
     return request('/v1/regenerate-api-key', true);
   }
 }

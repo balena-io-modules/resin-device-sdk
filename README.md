@@ -1,6 +1,8 @@
 ## resin.io device SDK
 
-This is a [resin-device-sdk](https://docs.resin.io/runtime/supervisor-api) SDK implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
+[![Build Status](https://travis-ci.org/resin-io-modules/resin-device-sdk.svg?branch=master)](https://travis-ci.org/resin-io-modules/resin-device-sdk)
+
+This is a [resin-device-sdk](https://docs.resin.io/runtime/supervisor-api) implemented with [HAXE](https://haxe.org/). It currently compiles to `nodejs` & `python 3` and works on a resin device where the correct environment variables are present.
 
 Example usage:
 
@@ -28,6 +30,10 @@ print ('device', supervisor.device())
 
 [Read the tests for more python examples](/test/test.py)
 
+### More languages?
+
+Theoretically this library should be able to compile to all [Haxe targets](https://haxe.org/documentation/introduction/compiler-targets.html). If you'd like a new target create an issue/PR. 💥
+
 ## Methods
 - [x] [.ping()](https://docs.resin.io/runtime/supervisor-api/#get-ping)
 - [x] [.blink()](https://docs.resin.io/runtime/supervisor-api/#post-v1-blink)
@@ -42,4 +48,4 @@ print ('device', supervisor.device())
 - [x] [.app(id:String)](https://docs.resin.io/runtime/supervisor-api/#get-v1-apps-appid)
 - [x] [.start(id:String)](https://docs.resin.io/runtime/supervisor-api/#post-v1-apps-appid-start)
 - [x] [.stop(id:String)](https://docs.resin.io/runtime/supervisor-api/#post-v1-apps-appid-stop)
-- [ ] [.regenerateApiKey()](https://docs.resin.io/runtime/supervisor-api/#post-v1-regenerate-api-key)
+- [x] [.regenerateApiKey()](https://docs.resin.io/runtime/supervisor-api/#post-v1-regenerate-api-key)

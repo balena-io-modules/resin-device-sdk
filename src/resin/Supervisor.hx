@@ -17,8 +17,18 @@ class Supervisor {
     this.debug = (opts!=null) ? opts.debug : false;
   }
 
+  function handleResponse(?data:Dynamic):Dynamic {
+    try {
+      return haxe.Json.parse(data);
+    } catch(msg : Dynamic) {
+      return data;
+    }
+  }
+
   function request(url:String, ?post:Bool = false, ?body:Dynamic):Dynamic {
-    var r = new haxe.Http('$baseUrl$url?apiKey=$apiKey');
+    var r = new haxe.Http('$baseUrl$url?apikey=$apiKey');
+
+    r.setHeader("Content-Type", "application/json");
 
     if (debug) {
       trace('Making request');
@@ -38,16 +48,13 @@ class Supervisor {
 
     #if js
       return new Promise(function(resolve, reject) {
+        var returnedData = null;
         r.onData = function (data) {
           if (url == '/regenerate-api-key') {
             this.apiKey = data;
           }
 
-          if (data.length == 0) {
-            resolve(data);
-          } else {
-            resolve(haxe.Json.parse(data));
-          }
+          resolve(handleResponse(data));
         };
 
         r.onError = function (e) {
@@ -68,11 +75,7 @@ class Supervisor {
           this.apiKey = data;
         }
 
-        if (data.length == 0) {
-          returnedData = data;
-        } else {
-          returnedData = haxe.Json.parse(data);
-        }
+        returnedData = handleResponse(data);
       };
 
       r.onError = function (e) {

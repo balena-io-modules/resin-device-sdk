@@ -6,7 +6,7 @@ module.exports = [
     },
     'httpResponse': {
         'statusCode': 200,
-        'body': JSON.stringify('OK')
+        'body': 'OK'
     },
     'times': {
         'unlimited': true
@@ -18,7 +18,7 @@ module.exports = [
         'path': '/v1/blink',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ]
@@ -36,7 +36,7 @@ module.exports = [
         'path': '/v1/device',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ]
@@ -66,7 +66,7 @@ module.exports = [
         'path': '/v1/restart',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -76,7 +76,7 @@ module.exports = [
     },
     'httpResponse': {
         'statusCode': 200,
-        'body': JSON.stringify('OK'),
+        'body': 'OK',
     },
     'times': {
         'unlimited': true
@@ -88,7 +88,7 @@ module.exports = [
         'path': '/v1/update',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -110,7 +110,7 @@ module.exports = [
         'path': '/v1/reboot',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -132,7 +132,7 @@ module.exports = [
         'path': '/v1/shutdown',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -154,7 +154,7 @@ module.exports = [
         'path': '/v1/purge',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -179,7 +179,7 @@ module.exports = [
         'path': '/v1/restart',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -189,7 +189,7 @@ module.exports = [
     },
     'httpResponse': {
         'statusCode': 204,
-        'body': JSON.stringify("OK"),
+        'body': 'OK',
     },
     'times': {
         'unlimited': true
@@ -201,7 +201,7 @@ module.exports = [
         'path': '/v1/tcp-ping',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ]
@@ -220,7 +220,7 @@ module.exports = [
         'path': '/v1/regenerate-api-key',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ]
@@ -239,7 +239,7 @@ module.exports = [
         'path': '/v1/apps/12',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -258,7 +258,7 @@ module.exports = [
         'path': '/v1/apps/12/stop',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
@@ -280,7 +280,7 @@ module.exports = [
         'path': '/v1/apps/12/start',
         'queryStringParameters': [
             {
-              'name': 'apiKey',
+              'name': 'apikey',
               'values': [ '1234' ]
             }
         ],
